@@ -1,7 +1,6 @@
 module Test.Suite (all) where
 
-import ElmTest.Test exposing (Test, suite, test)
-import ElmTest.Assertion exposing (assert)
+import ElmTest exposing (Test, suite, test, assert)
 
 all : Test
 all =

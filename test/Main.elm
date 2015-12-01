@@ -6,12 +6,12 @@
 module Main where
 
 import Console
-import ElmTest.Runner.Console as Runner
+import ElmTest
 import Task
 import Test.Suite
 
 
 port runner : Signal (Task.Task a ())
 port runner =
-  Console.run <| Runner.runDisplay Test.Suite.all
+  Console.run <| ElmTest.consoleRunner Test.Suite.all
     
