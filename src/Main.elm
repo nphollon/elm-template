@@ -1,51 +1,42 @@
-module Main where
+module Main exposing (main)
 
-import Graphics.Element as Element
-
-
-main : Signal Element.Element
-main = 
-  Signal.foldp update init input |> Signal.map view
+import Html exposing (Html)
+import Html.App as App
 
 
-    
+main : Program Never
+main =
+    App.program
+        { init = init
+        , subscriptions = subscriptions
+        , update = update
+        , view = view
+        }
+
+
 type alias Model =
-  {}
+    {}
 
-  
-init : Model
+
+type Action
+    = NoAction
+
+
+init : ( Model, Cmd Action )
 init =
-  {}
+    {} ! []
 
 
-
-type Update =
-  Dummy {}
-
-           
-input : Signal Update
-input =
-  Signal.map Dummy (Signal.constant {})
+subscriptions : Model -> Sub Action
+subscriptions model =
+    Sub.none
 
 
-
-update : Update -> Model -> Model
-update up model =
-  case up of
-    Dummy a ->
-      model
+update : Action -> Model -> ( Model, Cmd Action )
+update action model =
+    init
 
 
-
-view : Model -> Element.Element
-view model = 
-  Element.show model
-
-
-
-
-
-
-
-
-                  
+view : Model -> Html Action
+view model =
+    Html.text "Hello!"
