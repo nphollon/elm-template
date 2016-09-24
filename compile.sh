@@ -4,4 +4,4 @@ elm-test
 
 if [ $? -ne 0 ]; then exit 1; fi;
 
-elm-make --warn src/Main.elm
+elm-make --yes --warn src/Main.elm
